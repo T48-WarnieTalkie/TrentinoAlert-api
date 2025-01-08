@@ -1,0 +1,111 @@
+pacchetti npm:
+
+npm-check-updates: con ncu --upgrade aggiorna tutte le dependencies
+express-generator: con express <nome> crea scheletro di base per applicazione express
+express-async-handler: quando si crea una route, usando asyncHandler() come funzione si evita di costruire sempre blocchi try-catch
+
+TODO/QUESTIONS:
+
+todo: 
+-mettere parametro id in url ok
+-segnalazione su mappa content ok
+-segnalazioni su main mappa ok
+-form di inserimento segnalazione ok
+-sposta add danger in api ok
+-mandare risposta post api a sito normale ok
+-dividere routes da controller solo per API, per redere le funzioni api chiamabili anche dal backend ok
+-schemate 404
+
+-cambiare query params per vedere modals ok
+-fare map picker ok
+-fare logica moderatore
+
+-mettere "confine" intorno a trentino
+-fixare minlenght in attributo descrizione
+-inserire mappa e photo picker in segnalazione
+-aggiungere POIs e aggiornare schema danger
+-sessioni e schermata di login/registrazione
+-cryptazione password
+-immagini carousel nel database
+-area riservata
+-logo
+
+modifica logica:
+    generale:
+    -
+    POI:
+    -> i punti di interesse tipo fontanelle sono gia su openstreet map
+    -nuovi punti di interesse possono essere: -sagre, -mostre, -musica per strada, -parata per strada, -
+        -deve essere temporaneo o no, cosa è POI e cosa no? 
+            -fontana del nettuno è bella, ma non può stare sempre sulla mappa
+            -spettacolo teatrale è POI?
+        -passa da moderatore? moderatore dovrebbe avere la possibilità di rimuovere e bannare utenti, non approvare o rifiutare a prescindere
+    -> per ora implementare senza POI.
+
+-2 api per danger e poi? SI
+
+NAMING CONVENTIONS
+segnalazioni di pericolo -> danger
+api di x -> xAPI
+script client -> usare "-"
+
+
+APPUNTI LIBRERIE/LINGUAGGI:
+
+bootstrap:
+
+-margin: my-1
+-padding: py-1
+-background: bg-
+
+flexbox:
+layout monodimensionale per distribuire equamente lo spazio fra gli elementi
+    due assi:
+    -main axis (flex-direction) e cross axis (perpendicolare)
+    monodimensionale: pensare in termini di start e end e non dx o sx
+    align-item: allineamento sulla cross-axis
+    flex-wrap: fa si che elementi che non ci stanno su una linea vadano a capo
+    flex-grow e flex-shrink: indice di quanto un elemento è disposto a crescere/rimpicciolire rispetto agli altri per fare spazio
+    flex-basis: dimensione base di un elemento (main axis)
+    align-items: allineamento su cross-axis
+    justify-content: allineamento su main-axis
+        space-around, space-evenly, space-between
+    gap/gutter: spazio fra elementi in grid/flexbox
+
+    margin-left: auto -> pushare elemento sulla destra, prendendo tutto lo spazio disponibile a sinistra
+
+
+
+API:
+
+user:
+-login(POST)
+-registrazione(POST)
+-delete account(DELETE)
+-modify credentials(PATCH)
+
+danger:
+-add(POST)
+-get(GET)
+
+
+login:
+op1: fare una funzione che ritorna se login ha avuto successo o no
+
+
+-risolvere issue quando fai getOne si vede anche il num di telefono e mail nell API
+    -> mettere autenticazione per richiesta danger rejected, ecc.
+
+-in attesa di approvazione
+-attive
+-scadute e rifiutate?,
+
+-status si vede su ogni segnalazione? SI
+
+-aggiungere messaggio prima di segnalazione, non dopo
+
+-non si può rimuovere una segnalazione attiva? SI, non si può
+
+-mettere verification su datetime picker
+
+
